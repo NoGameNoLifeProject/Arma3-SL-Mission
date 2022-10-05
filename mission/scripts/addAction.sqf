@@ -1,0 +1,21 @@
+jetRocket = ["SLTEAM_104_JT12","SLTEAM_CWG_JTR12_GHOST","SLTEAM_JT12_Davijaan","SLTEAM_327_JT12","SLTEAM_327_JT12_raptor","SLTEAM_ARC_JT12_Moriarty","442_jt12","442_jt12_radio","SLTEAM_M10_JT12cpt_3as","SLTEAM_M10_JT12cpt","SLTEAM_M10_JT12_3as","SL_Jetpack_JT12","JMSSL_JT12_base_B","SLTEAM_JT12_SOBR_CPT","SLTEAM_JT12_SOBR_LT","JLTS_Clone_jumppack_JT12","JLTS_Clone_jumppack_JT12_104","JLTS_Clone_jumppack_JT12_501","JLTS_Clone_jumppack_JT12_black","ls_greenfor_jt12_backpack","ls_greenfor_jt12Small_backpack","JLTS_Clone_jumppack_JT12_DC","SLTEAM_JT12_SOBR_SGT","SLTEAM_M10_JT12","SLTEAM_Siest_JT","3as_JT12","SLTEAM_Grimax_JT","SLTEAM_Cutup_JT","442_jt12_pj_radio","442_jt12_pj","442_jt12_single","SLTEAM_502th_jt12_Cortes","SLTEAM_Arhiles_JT","SLTEAM_104_JT7","SLTEAM_104_JT7_MTF","SLTEAM_JT7_Mishler","RD501_jumppack_neutral_jt21_LTU","SLTEAM_Alpha_JT","SLTEAM_Null_JT_White","SLTEAM_Kit_JT7","SLTEAM_JT7_ARF_Forest","SLTEAM_JT7_ARF_Night","SLTEAM_JT7_ARF_Werd","SLTEAM_M10_JT7cpt_3as","SLTEAM_M10_JT7cpt","SLTEAM_M10_JT7_3as","SLTEAM_M10_JT7","SLTEAM_M10_JT7night_3as","SLTEAM_M10_JT7night","JMSSL_JT13_base_B","JMSSL_JT13M_base_B","SLTEAM_JT7_Shadow","SLTEAM_Gouts_JT","JMSSL_JT7_test2","SLTEAM_JT13_White","SLTEAM_JT13_Loki","SLTEAM_JT7_ARF_Dirty","SLTEAM_Z6_Mando_Miranda","SLTEAM_Z6_Mando","JMSSL_Z6_base_B","SLTEAM_Z6_Kando"];
+jetUid = ["76561198150330587", "76561199129594811", "76561198379098149", "76561199008645242", "76561198093878137"];
+
+cloak_uniform = ["JMSSL_CloneTrooper_shadow_F_CombatUniform", "SLTEAM_Valeska_uni", "SLTEAM_cadet_uni", "SLTEAM_assassin_uni", "SLTEAM_hunter_uni", "SLTEAM_ins_uni", "SLTEAM_gscmd_uni", "SLTEAM_gs_uni", "SLTEAM_saboteur_uni"];
+
+arf_equipment = ["JLTS_drugs_bacta_red", "ToolKit", "ACE_UAVBattery", "ACE_Banana"];
+arf_equipment_backpacks = ["SLTEAM_Back_ARF_Dirty", "SLTEAM_Back_ARF_Forest", "SLTEAM_Back_ARF_Night", "SLTEAM_Nidus_arf_JT4", "SLTEAM_Back_ARF_Werd", "SLTEAM_JT7_ARF_Werd", "SLTEAM_JT7_ARF_Night", "SLTEAM_JT7_ARF_Forest", "SLTEAM_JT7_ARF_Dirty", "SLTEAM_Lutick_JT7","SLTEAM_Null_JT_White", "jarf_jpack", "jarf_jpack2", "jarf_jpack3"];
+
+// Общие действия
+player addAction ["<t color='#00FF00'>Включить маскировку</t>", {[] execVM "scripts\stealth.sqf"}, [], 10, false, true, "", "(player getVariable ['StealthTimer', 0] < time) && (name player find 'ARF' != -1 or name player find '[41' != -1)"];
+player addAction ["Пуск", {[] execVM "scripts\jetRocket.sqf"}, [], 10, false, true, "user20", "(player getVariable ['jetCd', 0] < time) && (backpack player in jetRocket) && (getPlayerUID player in jetUid) && (vehicle player == player)"];
+// Действия Shadow
+player addAction ["Переключить маскировку", {[1] execVM "scripts\shadow\change.sqf"}, [], 6, false, true, "", "(uniform player in cloak_uniform) && (player getVariable ['Cloak_on', false] == false)"];
+player addAction ["Сохранить маскировку", {[0] execVM "scripts\shadow\change.sqf"}, [], 6, false, true, "", "!(uniform player in cloak_uniform) && (name player find 'Shadow' != -1) && (player getVariable ['shadowCamo', false] == false)"];
+// Действия ARC
+player addAction ["<t color='#2ECC71'>Вколоть боевой стимулятор</t>", {[] execVM "scripts\arc\stimpack.sqf"}, [], 10, false, true, "", "'JLTS_drugs_stimulant_battle' in (items player)"];
+// Действия ARF 
+player addAction ["<t color='#2ECC71'>Вколоть стимулятор эхани</t>", {[] execVM "scripts\arf\handStimpack.sqf"}, [], 10, false, true, "", "'JLTS_drugs_stimulant_echaniBattle' in (items player)"];
+player addAction ["<t color='#00FFCC'>Собрать развед. дрон</t>", {[0] execVM "scripts\arf\assembleDrone.sqf"}, [], 6, false, true, "", "(vehicle player == player) && (backpack player in arf_equipment_backpacks) && (arf_equipment select 1 in (items player)) && (arf_equipment select 2 in (items player))", 0, true];
+player addAction ["<t color='#00FFCC'>Собрать AL-6</t>", {[1] execVM "scripts\arf\assembleDrone.sqf"}, [], 6, false, true, "", "(vehicle player == player) && (backpack player in arf_equipment_backpacks) && (arf_equipment select 1 in (items player)) && (arf_equipment select 2 in (items player))", 0, true];
+[] execVM "scripts\arf\moveSpeed.sqf";

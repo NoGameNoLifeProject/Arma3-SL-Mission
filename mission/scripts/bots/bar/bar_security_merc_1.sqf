@@ -1,0 +1,1 @@
+bar_security_merc_1 switchMove "AidlPercMstpSlowWrflDnon_G02";

@@ -1,0 +1,78 @@
+//Инфистар
+#include "infiSTAR_AdminMenu.hpp"
+
+//Medcore
+#include "common.hpp"
+class RscTitles
+{
+	#include "namesleft.hpp"
+	#include "cau\extendedchat\RscTitles.cpp" //Chat
+};
+
+cba_settings_hasSettingsFile=1;
+enableDebugConsole = 1;
+respawn="BASE";
+respawnButton=1;
+respawnOnStart=-1;
+disabledAI=1;
+
+loadScreen="data\loadScreen.jpg";
+overviewPicture="data\overviewPicture.paa";
+onLoadName="STAR LINE | STAR WARS RP";
+OnLoadMission="Добро пожаловать на RP сервер по Star Wars на Arma 3. Приятной игры!";
+author="created by AnastasiyaHunter & Ljnero";
+
+class Params 
+{
+	#define DAYTIMEHOUR_DEFAULT 12 
+	#define TIMEACCELERATION_DEFAULT  10
+	#include "\a3\functions_f\Params\paramDaytimeHour.hpp"
+	#include "\a3\Functions_F_MP_Mark\Params\paramTimeAcceleration.hpp" 
+};
+
+class CfgDiscordRichPresence 
+{
+	applicationID="729787277332447345";				//Provided by discord
+	defaultDetails="Born for RP Lords.";			//Upper text
+	defaultState="Arma 3 Star Line";				//Lower text
+	defaultLargeImageKey="442";						//Large image
+	defaultLargeImageText="Star Wars RP";			//Large image hover text
+	defaultSmallImageKey="arma3_logo";				//Small image
+	defaultSmallImageText="Arma 3";					//Small image hover text
+	useTimeElapsed=1;								//Show time elapsed since the player connected (1 - true, 0 - false)
+};
+
+class CfgFunctions {
+	#include "cau\userinputmenus\CfgFunctions.cpp"
+	#include "cau\extendedchat\CfgFunctions.cpp"
+};
+
+class CfgEmoji {
+	#include "cau\extendedchat\emojipack\config.cpp"
+};
+
+//Chat Settings
+// Enables the use of emojis in chat. Automatically disabled if no emojis are found on the client
+CAU_xChat_emojis = 0; // 0 - disabled, 1 - enabled (default)
+// Toggle "<Name> connected" logs when a player loads into mission
+CAU_xChat_connectMessages = 0; // 0 - disabled, 1 - enabled (default)
+// Toggle "<Name> disconnected" logs when a player leaves the mission
+CAU_xChat_disconnectMessages = 0; // 0 - disabled, 1 - enabled (default)
+// Toggle "<Name1> was killed by <Name2>" and "<Name> was killed" when a player dies
+CAU_xChat_deathMessages = 0; // 0 - disabled, 1 - enabled (default)
+// Enables mentioning groups
+CAU_xChat_mentionGroups = 1; // 0 - disabled, 1 - enabled (groups of player's side, default), 2 - enabled (all groups)
+//Enables whisper command. Allows sending private chat messages to other players, groups and roles
+CAU_xChat_whisperCommand = 1; // 0 - disabled, 1 - enabled (default)
+
+#include "cau\userinputmenus\systems\_macros.inc"
+#include "cau\userinputmenus\systems\_defines.inc"
+#include "cau\userinputmenus\controls.cpp"
+#include "cau\userinputmenus\systems\displayColorPicker.cpp"
+#include "cau\userinputmenus\systems\displayGuiMessage.cpp"
+#include "cau\userinputmenus\systems\displayListbox.cpp"
+#include "cau\userinputmenus\systems\displayListboxMulti.cpp"
+#include "cau\userinputmenus\systems\displayProgressBar.cpp"
+#include "cau\userinputmenus\systems\displaySlider.cpp"
+#include "cau\userinputmenus\systems\displayText.cpp"
+#include "cau\userinputmenus\systems\displayTextMulti.cpp"
