@@ -539,7 +539,7 @@ ace_advanced_throwing_showThrowArc = true;
 
 // ACE Фортификация
 force ace_fortify_markObjectsOnMap = 0;
-force ace_fortify_timeCostCoefficient = 1;
+force ace_fortify_timeCostCoefficient = 3;
 force ace_fortify_timeMin = 1.5;
 acex_fortify_settingHint = 1;
 
