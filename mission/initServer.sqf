@@ -16,7 +16,7 @@ addMissionEventHandler ["EntityRespawned", {
 missionNamespace setVariable ["327SW", random [100, 300, 500] toFixed 2, true];
 missionNamespace setVariable ["327DWSW", random [100, 300, 500] toFixed 2, true];
 
-[west, -1, [
+[west, 800, [
 	
 ["3AS_Cover1",1],
 ["3AS_Cover2",2],

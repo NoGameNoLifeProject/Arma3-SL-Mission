@@ -11,6 +11,8 @@ LockedWeaponsList = createHashMapFromArray [
 		["76561198242248288", true], //🅶🆄🅺🅸 🆂🆄🅺🅸#0424
 		["76561198269632376", true], //Dracula#0421
 		["76561199063353466", true], //jyks30#7971
+		["76561198030948070", true], //terbonaht#0764
+		["76561198824808694", true], //Diogenesis#1248
 		["76561199072074129", true] //Adenn#7623
 	]],
 	["SL_Weapons_RNC", createHashMapFromArray [ //RNC
@@ -27,7 +29,7 @@ LockedWeaponsList = createHashMapFromArray [
 	]],
 	["Null_Verpine_Gun", createHashMapFromArray [ // Null Verpine
 		["76561198136308916", true], // Prudii (Heerash#5665)
-		["76561198335008125", true], // Mereel (GHOST#4206)
+		["76561198420473950", true], // Mereel (Vilandise#6666)
 		["76561198257119473", true], // Aden (respikanger#8372)
 		["76561198375697822", true], // Ordo (Brando#1614)
 		["76561198412059906", true], // Kom'rk (Sumers(Никита)#5846)
@@ -40,7 +42,7 @@ LockedWeaponsListNames = createHashMapFromArray [
 	["SL_Weapons_RNC", "RNC"], 
 	["slTeam_m10_m5_gl", "WestarM10"], 
 	["SLTEAM_SOBR_Westar51", "WestarX01"], 
-	["Ambassador_Rifle", "Ambassador_R"], 
+	["Ambassador_Rifle", "Ambassador_R"],
 	["Null_Verpine_Gun", "NullVerpine"]
 ];
 
